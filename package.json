@@ -1,0 +1,49 @@
+{
+  "name": "@financial-times/politics",
+  "version": "0.0.0",
+  "description": "Various utilities for sundry political stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "pack": "pika pack",
+    "prepublish-only": "npm run pack && cd pkg && npm-prepublish --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/djd-politics-utilities.git"
+  },
+  "keywords": [],
+  "authors": [
+    "Cale Tilford",
+    "Ændrew Rininsland"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/djd-politics-utilities/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/djd-politics-utilities#readme",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.7.1",
+    "@pika/plugin-build-web": "^0.7.1",
+    "@pika/plugin-standard-pkg": "^0.7.1",
+    "jest": "^24.9.0",
+    "npm-prepublish": "^1.2.3"
+  },
+  "dependencies": {
+    "remove-accents": "^0.4.2"
+  }
+}
