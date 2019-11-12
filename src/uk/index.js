@@ -73,6 +73,7 @@ export const getPartyInfo = name => {
         adjective: "Plaid Cymru"
       };
     case "SNP":
+    case "SCOTTISHNATIONALPARTY":
       return {
         color: "#ffdf00",
         whiteOverlayOpacity: 0,
@@ -89,6 +90,7 @@ export const getPartyInfo = name => {
         adjective: "Sinn Féin"
       };
     case "DUP":
+    case "DEMOCRATICUNIONISTPARTY":
       return {
         color: "#210066",
         whiteOverlayOpacity: 0.5,
@@ -97,6 +99,7 @@ export const getPartyInfo = name => {
         adjective: "Democratic Unionist party"
       };
     case "UUP":
+    case "ULSTERUNIONISTPARTY":
       return {
         color: "#3f67cc",
         whiteOverlayOpacity: 0.3,
@@ -105,6 +108,8 @@ export const getPartyInfo = name => {
         adjective: "Ulster Unionist party"
       };
     case "SDLP":
+    case "SOCIALDEMOCRATICANDLABOURPARTY":
+    case "SOCIALDEMOCRATICLABOURPARTY":
       return {
         color: "#5ba373",
         whiteOverlayOpacity: 0.3,
