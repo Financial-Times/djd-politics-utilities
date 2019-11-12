@@ -51,7 +51,7 @@ jobs:
       - *attach_workspace
       - add_ssh_keys:
           fingerprints:
-            - "0b:59:6c:d2:17:7f:75:e4:2b:de:5f:a6:c7:2d:1a:2d"
+            - "55:3a:fa:df:9d:17:8a:88:be:96:da:e1:1b:78:12:7a"
       - run:
           name: Set Git config
           command: git config --global user.email "data.journalism.development+ci@ft.com" && git config --global user.name FT-DJD
