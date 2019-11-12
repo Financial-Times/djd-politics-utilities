@@ -10,12 +10,12 @@ references:
 
   npm_cache_key: &npm_cache_key v1-dependency-npm-{{ checksum "package-lock.json" }}
 
-  ssh_cache_key: &ssh_cache_key vvc-rev{{ .Revision }}
+  # ssh_cache_key: &ssh_cache_key vvc-rev{{ .Revision }}
 
-  restore_ssh: &restore_ssh
-    restore_cache:
-      keys:
-        - *ssh_cache_key
+  # restore_ssh: &restore_ssh
+  #   restore_cache:
+  #     keys:
+  #       - *ssh_cache_key
 
   restore_node_modules: &restore_node_modules
     restore_cache:
@@ -34,10 +34,10 @@ jobs:
     <<: *default_container_config
     steps:
       - checkout
-      - save_cache:
-          key: *ssh_cache_key
-          paths:
-            - ~/.ssh
+      # - save_cache:
+      #     key: *ssh_cache_key
+      #     paths:
+      #       - ~/.ssh
       - *restore_node_modules
       - run:
           name: Install dependencies
@@ -60,16 +60,16 @@ jobs:
     <<: *default_container_config
     steps:
       - *attach_workspace
-      - *restore_ssh
-      - run:
-          name: Remove read key
-          command: ssh-add -D
-      - add_ssh_keys:
-          fingerprints:
-            - "55:3a:fa:df:9d:17:8a:88:be:96:da:e1:1b:78:12:7a"
-      - run:
-          name: Set Git config
-          command: git config --global user.email "data.journalism.development+ci@ft.com" && git config --global user.name FT-DJD
+      # - *restore_ssh
+      # - run:
+      #     name: Remove read key
+      #     command: ssh-add -D
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "55:3a:fa:df:9d:17:8a:88:be:96:da:e1:1b:78:12:7a"
+      # - run:
+      #     name: Set Git config
+      #     command: git config --global user.email "data.journalism.development+ci@ft.com" && git config --global user.name FT-DJD
       - run:
           name: Build
           command: npm run build
