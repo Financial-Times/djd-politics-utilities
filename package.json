@@ -62,7 +62,7 @@
           "pkgRoot": "./pkg"
         }
       ],
-      "@semantic-release/git"
+      "@semantic-release/github"
     ]
   }
 }

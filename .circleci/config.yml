@@ -71,6 +71,9 @@ workflows:
       #     requires:
       #       - install
       - release_npm:
+          filters:
+            branches:
+              only: master
           requires:
             - install
             # - test
