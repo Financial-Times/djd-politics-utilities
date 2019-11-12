@@ -1,12 +1,11 @@
 {
   "name": "@financial-times/politics",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Various utilities for sundry political stuff",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "pack": "pika pack",
-    "prepublish-only": "npm run pack && cd pkg && npm-prepublish --verbose"
+    "build": "pika pack"
   },
   "repository": {
     "type": "git",
@@ -40,10 +39,30 @@
     "@pika/plugin-build-node": "^0.7.1",
     "@pika/plugin-build-web": "^0.7.1",
     "@pika/plugin-standard-pkg": "^0.7.1",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
-    "npm-prepublish": "^1.2.3"
+    "npm-prepublish": "^1.2.3",
+    "prettier": "^1.19.1"
   },
   "dependencies": {
     "remove-accents": "^0.4.2"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      "@semantic-release/git"
+    ]
   }
 }

@@ -22,10 +22,6 @@ references:
       paths:
         - $HOME/.npm
 
-  only_version_tags: &only_version_tags
-    tags:
-      only: /^v.*$/
-
 jobs:
   install:
     <<: *default_container_config
@@ -53,33 +49,28 @@ jobs:
     <<: *default_container_config
     steps:
       - *attach_workspace
+      - add_ssh_keys:
+          fingerprints:
+            - "0b:59:6c:d2:17:7f:75:e4:2b:de:5f:a6:c7:2d:1a:2d"
       - run:
-          name: Setup npm credentials
-          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
+          name: Set Git config
+          command: git config --global user.email "data.journalism.development+ci@ft.com" && git config --global user.name FT-DJD
       - run:
-          name: Prepub tasks
-          command: npm run prepublish-only
+          name: Build
+          command: npm run build
       - run:
           name: Publish npm package
-          command: npm publish pkg --access public
+          command: npx semantic-release
 
 workflows:
   version: 2
   build-and-release:
     jobs:
-      - install:
-          filters:
-            <<: *only_version_tags
+      - install
       # - test:
       #     requires:
       #       - install
-      #     filters:
-      #       <<: *only_version_tags
       - release_npm:
           requires:
             - install
             # - test
-          filters:
-            <<: *only_version_tags
-            branches:
-              ignore: /.*/
