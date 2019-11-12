@@ -53,6 +53,7 @@
     "remove-accents": "^0.4.2"
   },
   "release": {
+    "repositoryUrl": "git@github.com:Financial-Times/djd-politics-utilities.git",
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
