@@ -78,7 +78,7 @@ jobs:
           command: npx semantic-release
       - run:
           name: Set npm config
-          command: npm set //npm.pkg.github.com/:_authToken=$GHPR_TOKEN
+          command: echo "//npm.pkg.github.com/:_authToken=${GHPR_TOKEN}" > ~/.npmrc
       - run:
           name: Publish GHPR
           command: npm publish pkg
