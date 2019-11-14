@@ -78,7 +78,7 @@ jobs:
           command: npx semantic-release
       - run:
           name: Set npm config
-          command: echo "//npm.pkg.github.com/:_authToken=${GHPR_TOKEN}" > ~/.npmrc
+          command: printf "@financial-times:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${GHPR_TOKEN}" > ~/.npmrc
       - run:
           name: Publish GHPR
           command: npm publish pkg
@@ -92,13 +92,6 @@ workflows:
       #     requires:
       #       - install
       - release_npm:
-          filters:
-            branches:
-              only: master
-          requires:
-            - install
-            # - test
-      - release_ghpr:
           filters:
             branches:
               only: master
