@@ -5,6 +5,28 @@
 
 import removeAccents from "remove-accents";
 
+let places;
+export const getPlaceNameFromONS = code => {
+  if (!places) places = require("./data/codes_places.json");
+  const result = places.find(d => d.place18cd === code);
+  if (result) return result.place18nm;
+
+  throw new Error("Code not found");
+};
+
+export const getONSfromPlaceName = placeName => {
+  if (!places) places = require("./data/codes_places.json");
+  const result = places
+    .filter(d => d.place18nm.includes(code))
+    .map(d => ({
+      code: d.place18cd,
+      name: d.place18nm
+    }));
+  if (result) return result;
+
+  throw new Error("Place not found");
+};
+
 export const getPartyInfo = name => {
   const sanitisedName = removeAccents(name.toUpperCase().replace(/\s/g, ""));
   switch (sanitisedName) {
