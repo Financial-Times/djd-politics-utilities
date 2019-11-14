@@ -76,21 +76,12 @@ jobs:
       - run:
           name: Publish npm package
           command: npx semantic-release
-
-  release_ghpr:
-    <<: *default_container_config
-    steps:
-      - *attach_workspace
-      - run:
-          name: Build
-          command: npm run build
       - run:
           name: Set npm config
           command: npm set //npm.pkg.github.com/:_authToken=$GHPR_TOKEN
-
       - run:
-          name: Publish npm package
-          command: npx semantic-release
+          name: Publish GHPR
+          command: npm publish pkg
 
 workflows:
   version: 2
