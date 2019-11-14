@@ -85,8 +85,8 @@ jobs:
           name: Build
           command: npm run build
       - run:
-          name: Set env vars
-          command: export NPM_CONFIG_REGISTRY="https://npm.pkg.github.com/" && export NPM_TOKEN="${GHPR_TOKEN}"
+          name: Set npm config
+          command: npm set //npm.pkg.github.com/:_authToken=$GHPR_TOKEN
 
       - run:
           name: Publish npm package
