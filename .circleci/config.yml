@@ -77,6 +77,21 @@ jobs:
           name: Publish npm package
           command: npx semantic-release
 
+  release_ghpr:
+    <<: *default_container_config
+    steps:
+      - *attach_workspace
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Set env vars
+          command: export NPM_CONFIG_REGISTRY="https://npm.pkg.github.com/" && export NPM_TOKEN="${GHPR_TOKEN}"
+
+      - run:
+          name: Publish npm package
+          command: npx semantic-release
+
 workflows:
   version: 2
   build-and-release:
@@ -86,6 +101,13 @@ workflows:
       #     requires:
       #       - install
       - release_npm:
+          filters:
+            branches:
+              only: master
+          requires:
+            - install
+            # - test
+      - release_ghpr:
           filters:
             branches:
               only: master
