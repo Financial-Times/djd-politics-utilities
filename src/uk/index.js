@@ -40,6 +40,7 @@ export const getPartyInfo = name => {
         formattedName: "Green",
         adjective: "Green party"
       };
+    case "INDEPENDENTGROUPFORCHANGE":
     case "CHANGEUK":
       return {
         color: "#fc8b9d",
