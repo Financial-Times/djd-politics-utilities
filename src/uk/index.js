@@ -125,6 +125,15 @@ export const getPartyInfo = name => {
         formattedName: "Alliance party",
         adjective: "Alliance party"
       };
+    case "THESPEAKER":
+    case "SPEAKER":
+      return {
+        color: "#ffffff",
+        whiteOverlayOpacity: 1,
+        shortName: "Speaker",
+        formattedName: "Speaker",
+        adjective: "Speaker"
+      };
     case "INDEPENDENT/OTHER":
     case "INDEPENDENT":
     case "OTHER":
