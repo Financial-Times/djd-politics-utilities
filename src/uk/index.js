@@ -53,7 +53,7 @@ export const getPartyInfo = name => {
         color: "#80cfd6",
         whiteOverlayOpacity: 0.3,
         shortName: "Brexit",
-        formattedName: "Brexit",
+        formattedName: "Brexit party",
         adjective: "Brexit party"
       };
     case "UKIP":
