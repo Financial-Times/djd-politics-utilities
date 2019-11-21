@@ -40,6 +40,7 @@ export const getPartyInfo = name => {
         formattedName: "Green",
         adjective: "Green party"
       };
+    case "INDEPENDENTGROUPFORCHANGE":
     case "CHANGEUK":
       return {
         color: "#fc8b9d",
@@ -53,7 +54,7 @@ export const getPartyInfo = name => {
         color: "#80cfd6",
         whiteOverlayOpacity: 0.3,
         shortName: "Brexit",
-        formattedName: "Brexit",
+        formattedName: "Brexit party",
         adjective: "Brexit party"
       };
     case "UKIP":
@@ -124,6 +125,15 @@ export const getPartyInfo = name => {
         shortName: "APNI",
         formattedName: "Alliance party",
         adjective: "Alliance party"
+      };
+    case "THESPEAKER":
+    case "SPEAKER":
+      return {
+        color: "#ffffff",
+        whiteOverlayOpacity: 1,
+        shortName: "Speaker",
+        formattedName: "Speaker",
+        adjective: "Speaker"
       };
     case "INDEPENDENT/OTHER":
     case "INDEPENDENT":
