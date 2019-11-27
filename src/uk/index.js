@@ -5,154 +5,196 @@
 
 import removeAccents from "remove-accents";
 
+export const parties = {
+  CON: {
+    color: "#149adb",
+    textColor: "white",
+    whiteOverlayOpacity: 0.2,
+    shortName: "Con",
+    formattedName: "Conservative",
+    adjective: "Conservative party"
+  },
+  LAB: {
+    color: "#cf4d3c",
+    textColor: "white",
+    whiteOverlayOpacity: 0.2,
+    shortName: "Lab",
+    formattedName: "Labour",
+    adjective: "Labour party"
+  },
+  LIBDEM: {
+    color: "#f09000",
+    textColor: "black",
+    whiteOverlayOpacity: 0.2,
+    shortName: "Lib Dem",
+    formattedName: "Liberal Democrats",
+    adjective: "Liberal Democrat"
+  },
+  GREEN: {
+    color: "#8deb9d",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Green",
+    formattedName: "Green",
+    adjective: "Green party"
+  },
+  TIGFC: {
+    color: "#fc8b9d",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "TIGfC",
+    formattedName: "Independent Group for Change",
+    adjective: "Independent Group for Change"
+  },
+  BREXIT: {
+    color: "#80cfd6",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Brexit",
+    formattedName: "Brexit party",
+    adjective: "Brexit party"
+  },
+  UKIP: {
+    color: "#7200ab",
+    textColor: "white",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Ukip",
+    formattedName: "Ukip",
+    adjective: "Ukip"
+  },
+  PC: {
+    color: "#990000",
+    textColor: "white",
+    whiteOverlayOpacity: 0.3,
+    shortName: "PC",
+    formattedName: "Plaid Cymru",
+    adjective: "Plaid Cymru"
+  },
+  SNP: {
+    color: "#ffdf00",
+    textColor: "black",
+    whiteOverlayOpacity: 0,
+    shortName: "SNP",
+    formattedName: "Scottish National party",
+    adjective: "Scottish National party"
+  },
+  SF: {
+    color: "#006643",
+    textColor: "white",
+    whiteOverlayOpacity: 0.3,
+    shortName: "SF",
+    formattedName: "Sinn Féin",
+    adjective: "Sinn Féin"
+  },
+  DUP: {
+    color: "#210066",
+    textColor: "white",
+    whiteOverlayOpacity: 0.5,
+    shortName: "DUP",
+    formattedName: "Democratic Unionist party",
+    adjective: "Democratic Unionist party"
+  },
+  UUP: {
+    color: "#3f67cc",
+    textColor: "white",
+    whiteOverlayOpacity: 0.3,
+    shortName: "UUP",
+    formattedName: "Ulster Unionist party",
+    adjective: "Ulster Unionist party"
+  },
+  SDLP: {
+    color: "#5ba373",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "SDLP",
+    formattedName: "Social Democratic and Labour party",
+    adjective: "Social Democratic and Labour party"
+  },
+  APNI: {
+    color: "#ffbe18",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "APNI",
+    formattedName: "Alliance party",
+    adjective: "Alliance party"
+  },
+  SPEAKER: {
+    color: "#ffffff",
+    textColor: "black",
+    whiteOverlayOpacity: 1,
+    shortName: "Speaker",
+    formattedName: "Speaker",
+    adjective: "Speaker"
+  },
+  IND: {
+    color: "#d9cace",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Ind",
+    formattedName: "Independent",
+    adjective: "Independent"
+  },
+  OTHERS: {
+    color: "#ffffff",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Others",
+    formattedName: "Others",
+    adjective: "Other"
+  }
+};
+
+export const partiesArray = Object.entries(parties).map(([key, d]) => ({
+  key,
+  ...d
+}));
+
 export const getPartyInfo = name => {
   const sanitisedName = removeAccents(name.toUpperCase().replace(/\s/g, ""));
   switch (sanitisedName) {
     case "CONSERVATIVE":
-      return {
-        color: "#149adb",
-        whiteOverlayOpacity: 0.2,
-        shortName: "Con",
-        formattedName: "Conservative",
-        adjective: "Conservative party"
-      };
+      return parties.CON;
     case "LABOUR":
-      return {
-        color: "#cf4d3c",
-        whiteOverlayOpacity: 0.2,
-        shortName: "Lab",
-        formattedName: "Labour",
-        adjective: "Labour party"
-      };
+      return parties.LAB;
     case "LIBERALDEMOCRATS":
-      return {
-        color: "#f09000",
-        whiteOverlayOpacity: 0.2,
-        shortName: "Lib Dem",
-        formattedName: "Liberal Democrats",
-        adjective: "Liberal Democrat"
-      };
+      return parties.LIBDEM;
     case "GREEN":
-      return {
-        color: "#8deb9d",
-        whiteOverlayOpacity: 0.3,
-        shortName: "Green",
-        formattedName: "Green",
-        adjective: "Green party"
-      };
+      return parties.GREEN;
     case "INDEPENDENTGROUPFORCHANGE":
     case "CHANGEUK":
-      return {
-        color: "#fc8b9d",
-        whiteOverlayOpacity: 0.3,
-        shortName: "TIGfC",
-        formattedName: "Independent Group for Change",
-        adjective: "Independent Group for Change"
-      };
+      return parties.TIGFC;
     case "BREXIT":
-      return {
-        color: "#80cfd6",
-        whiteOverlayOpacity: 0.3,
-        shortName: "Brexit",
-        formattedName: "Brexit party",
-        adjective: "Brexit party"
-      };
+      return parties.BREXIT;
     case "UKIP":
-      return {
-        color: "#7200ab",
-        whiteOverlayOpacity: 0.3,
-        shortName: "Ukip",
-        formattedName: "Ukip",
-        adjective: "Ukip"
-      };
+      return parties.UKIP;
     case "PLAIDCYMRU":
-      return {
-        color: "#990000",
-        whiteOverlayOpacity: 0.3,
-        shortName: "PC",
-        formattedName: "Plaid Cymru",
-        adjective: "Plaid Cymru"
-      };
+      return parties.PC;
     case "SNP":
     case "SCOTTISHNATIONALPARTY":
-      return {
-        color: "#ffdf00",
-        whiteOverlayOpacity: 0,
-        shortName: "SNP",
-        formattedName: "Scottish National party",
-        adjective: "Scottish National party"
-      };
+      return parties.SNP;
     case "SINNFEIN":
-      return {
-        color: "#006643",
-        whiteOverlayOpacity: 0.3,
-        shortName: "SF",
-        formattedName: "Sinn Féin",
-        adjective: "Sinn Féin"
-      };
+      return parties.SF;
     case "DUP":
     case "DEMOCRATICUNIONISTPARTY":
-      return {
-        color: "#210066",
-        whiteOverlayOpacity: 0.5,
-        shortName: "DUP",
-        formattedName: "Democratic Unionist party",
-        adjective: "Democratic Unionist party"
-      };
+      return parties.DUP;
     case "UUP":
     case "ULSTERUNIONISTPARTY":
-      return {
-        color: "#3f67cc",
-        whiteOverlayOpacity: 0.3,
-        shortName: "UUP",
-        formattedName: "Ulster Unionist party",
-        adjective: "Ulster Unionist party"
-      };
+      return parties.UUP;
     case "SDLP":
     case "SOCIALDEMOCRATICANDLABOURPARTY":
     case "SOCIALDEMOCRATICLABOURPARTY":
-      return {
-        color: "#5ba373",
-        whiteOverlayOpacity: 0.3,
-        shortName: "SDLP",
-        formattedName: "Social Democratic and Labour party",
-        adjective: "Social Democratic and Labour party"
-      };
+      return parties.SDLP;
     case "ALLIANCE":
-      return {
-        color: "#ffbe18",
-        whiteOverlayOpacity: 0.3,
-        shortName: "APNI",
-        formattedName: "Alliance party",
-        adjective: "Alliance party"
-      };
+      return parties.APNI;
     case "THESPEAKER":
     case "SPEAKER":
-      return {
-        color: "#ffffff",
-        whiteOverlayOpacity: 1,
-        shortName: "Speaker",
-        formattedName: "Speaker",
-        adjective: "Speaker"
-      };
+      return parties.SPEAKER;
     case "INDEPENDENT/OTHER":
     case "INDEPENDENT":
     case "OTHER":
-      return {
-        color: "#d9cace",
-        whiteOverlayOpacity: 0.3,
-        shortName: "Ind",
-        formattedName: "Independent",
-        adjective: "Independent"
-      };
+      return parties.IND;
     case "OTHERS":
-      return {
-        color: "#ffffff",
-        whiteOverlayOpacity: 0.3,
-        shortName: "Others",
-        formattedName: "Others",
-        adjective: "Other"
-      };
+      return parties.OTHERS;
     default:
       throw new Error(`No party match found for ${name}`);
   }
