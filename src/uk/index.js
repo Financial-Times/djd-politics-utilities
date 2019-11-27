@@ -64,7 +64,7 @@ export const parties = {
   },
   PC: {
     color: "#990000",
-    textColor: "black",
+    textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "PC",
     formattedName: "Plaid Cymru",
@@ -96,7 +96,7 @@ export const parties = {
   },
   UUP: {
     color: "#3f67cc",
-    textColor: "black",
+    textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "UUP",
     formattedName: "Ulster Unionist party",
