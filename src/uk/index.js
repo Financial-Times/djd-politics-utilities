@@ -164,6 +164,7 @@ export const getPartyInfo = name => {
     case "CHANGEUK":
       return parties.TIGFC;
     case "BREXIT":
+    case "BREXITPARTY":
       return parties.BREXIT;
     case "UKIP":
       return parties.UKIP;
