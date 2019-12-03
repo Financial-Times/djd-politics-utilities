@@ -157,6 +157,10 @@ export const getPartyInfo = name => {
     case "LABOUR":
       return parties.LAB;
     case "LIBERALDEMOCRATS":
+    case "LIBERALDEMOCRAT":
+    case "LIBDEM":
+    case "LIBDEMS":
+    case "LD":
       return parties.LIBDEM;
     case "GREEN":
       return parties.GREEN;
