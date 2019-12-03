@@ -153,15 +153,23 @@ export const getPartyInfo = name => {
   const sanitisedName = removeAccents(name.toUpperCase().replace(/\s/g, ""));
   switch (sanitisedName) {
     case "CONSERVATIVE":
+    case "CONSERVATIVES":
+    case "TORIES":
       return parties.CON;
     case "LABOUR":
       return parties.LAB;
     case "LIBERALDEMOCRATS":
+    case "LIBERALDEMOCRAT":
+    case "LIBDEM":
+    case "LIBDEMS":
+    case "LD":
       return parties.LIBDEM;
     case "GREEN":
+    case "GREENS":
       return parties.GREEN;
     case "INDEPENDENTGROUPFORCHANGE":
     case "CHANGEUK":
+    case "CHANGE":
       return parties.TIGFC;
     case "BREXIT":
     case "BREXITPARTY":
