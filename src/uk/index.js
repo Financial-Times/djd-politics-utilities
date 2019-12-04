@@ -8,6 +8,7 @@ import removeAccents from "remove-accents";
 export const parties = {
   CON: {
     color: "#149adb",
+    socialColor: "#0095E8",
     textColor: "white",
     whiteOverlayOpacity: 0.2,
     shortName: "Con",
@@ -16,6 +17,7 @@ export const parties = {
   },
   LAB: {
     color: "#cf4d3c",
+    socialColor: "#FF634D",
     textColor: "white",
     whiteOverlayOpacity: 0.2,
     shortName: "Lab",
@@ -24,6 +26,7 @@ export const parties = {
   },
   LIBDEM: {
     color: "#f09000",
+    socialColor: "#FFAD36",
     textColor: "black",
     whiteOverlayOpacity: 0.2,
     shortName: "Lib Dem",
@@ -32,6 +35,7 @@ export const parties = {
   },
   GREEN: {
     color: "#8deb9d",
+    socialColor: "#80FF96",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "Green",
@@ -40,6 +44,7 @@ export const parties = {
   },
   TIGFC: {
     color: "#fc8b9d",
+    socialColor: "#FCBDC7",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "TIGfC",
@@ -48,6 +53,7 @@ export const parties = {
   },
   BREXIT: {
     color: "#80cfd6",
+    socialColor: "#00bfbc",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "Brexit",
@@ -56,6 +62,7 @@ export const parties = {
   },
   UKIP: {
     color: "#7200ab",
+    socialColor: "#7F00D9",
     textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "Ukip",
@@ -64,6 +71,7 @@ export const parties = {
   },
   PC: {
     color: "#990000",
+    socialColor: "#B30000",
     textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "PC",
@@ -72,6 +80,7 @@ export const parties = {
   },
   SNP: {
     color: "#ffdf00",
+    socialColor: "#FFF8AB",
     textColor: "black",
     whiteOverlayOpacity: 0,
     shortName: "SNP",
@@ -80,6 +89,7 @@ export const parties = {
   },
   SF: {
     color: "#006643",
+    socialColor: "#006643",
     textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "SF",
@@ -88,6 +98,7 @@ export const parties = {
   },
   DUP: {
     color: "#210066",
+    socialColor: "#4B28B0",
     textColor: "white",
     whiteOverlayOpacity: 0.5,
     shortName: "DUP",
@@ -96,6 +107,7 @@ export const parties = {
   },
   UUP: {
     color: "#3f67cc",
+    socialColor: "#195EF7",
     textColor: "white",
     whiteOverlayOpacity: 0.3,
     shortName: "UUP",
@@ -104,6 +116,7 @@ export const parties = {
   },
   SDLP: {
     color: "#5ba373",
+    socialColor: "#007D51",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "SDLP",
@@ -112,6 +125,7 @@ export const parties = {
   },
   APNI: {
     color: "#ffbe18",
+    socialColor: "#FACD5D",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "APNI",
@@ -120,6 +134,7 @@ export const parties = {
   },
   SPEAKER: {
     color: "#ffffff",
+    socialColor: "#ffffff",
     textColor: "black",
     whiteOverlayOpacity: 1,
     shortName: "Speaker",
@@ -128,6 +143,7 @@ export const parties = {
   },
   IND: {
     color: "#d9cace",
+    socialColor: "#E0D9D5",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "Ind",
@@ -136,6 +152,7 @@ export const parties = {
   },
   OTHERS: {
     color: "#ffffff",
+    socialColor: "#ffffff",
     textColor: "black",
     whiteOverlayOpacity: 0.3,
     shortName: "Others",
