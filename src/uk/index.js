@@ -205,7 +205,11 @@ export const getPartyInfo = name => {
     case "OTHERS":
       return parties.OTHERS;
     default:
-      throw new Error(`No party match found for ${name}`);
+      if (sanitisedName.includes("INDEPENDENT")) {
+        return parties.IND;
+      } else {
+        throw new Error(`No party match found for ${name}`);
+      }
   }
 };
 
