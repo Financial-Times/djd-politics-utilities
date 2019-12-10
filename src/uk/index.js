@@ -172,8 +172,10 @@ export const getPartyInfo = name => {
     case "CONSERVATIVE":
     case "CONSERVATIVES":
     case "TORIES":
+    case "CON":
       return parties.CON;
     case "LABOUR":
+    case "LAB":
       return parties.LAB;
     case "LIBERALDEMOCRATS":
     case "LIBERALDEMOCRAT":
@@ -187,6 +189,7 @@ export const getPartyInfo = name => {
     case "INDEPENDENTGROUPFORCHANGE":
     case "CHANGEUK":
     case "CHANGE":
+    case "TIGFC":
       return parties.TIGFC;
     case "BREXIT":
     case "BREXITPARTY":
@@ -194,11 +197,13 @@ export const getPartyInfo = name => {
     case "UKIP":
       return parties.UKIP;
     case "PLAIDCYMRU":
+    case "PC":
       return parties.PC;
     case "SNP":
     case "SCOTTISHNATIONALPARTY":
       return parties.SNP;
     case "SINNFEIN":
+    case "SF":
       return parties.SF;
     case "DUP":
     case "DEMOCRATICUNIONISTPARTY":
@@ -211,6 +216,7 @@ export const getPartyInfo = name => {
     case "SOCIALDEMOCRATICLABOURPARTY":
       return parties.SDLP;
     case "ALLIANCE":
+    case "APNI":
       return parties.APNI;
     case "THESPEAKER":
     case "SPEAKER":
@@ -218,15 +224,15 @@ export const getPartyInfo = name => {
     case "INDEPENDENT/OTHER":
     case "INDEPENDENT":
     case "OTHER":
+    case "IND":
       return parties.IND;
     case "OTHERS":
       return parties.OTHERS;
     default:
       if (sanitisedName.includes("INDEPENDENT")) {
         return parties.IND;
-      } else {
-        throw new Error(`No party match found for ${name}`);
       }
+      throw new Error(`No party match found for ${name}`);
   }
 };
 
