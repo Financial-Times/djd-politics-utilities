@@ -94,7 +94,7 @@ workflows:
       - release_npm:
           filters:
             branches:
-              only: master
+              only: main
           requires:
             - install
             # - test
