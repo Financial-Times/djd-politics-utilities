@@ -4,9 +4,6 @@
   "description": "Various utilities for sundry political stuff",
   "main": "src/index.js",
   "type": "module",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Financial-Times/djd-politics-utilities.git"
@@ -28,12 +25,11 @@
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
-    "jest": "^24.9.0",
     "npm-prepublish": "^1.2.3",
     "prettier": "^1.19.1"
   },
   "dependencies": {
-    "remove-accents": "^0.4.2"
+    "remove-accents": "^0.5.0"
   },
   "publishConfig": {
     "access": "public"

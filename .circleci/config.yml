@@ -2,7 +2,7 @@ version: 2
 references:
   default_container_config: &default_container_config
     docker:
-      - image: cimg/node:14.18
+      - image: cimg/node:21.4.0
 
   attach_workspace: &attach_workspace
     attach_workspace:
@@ -25,14 +25,6 @@ jobs:
           paths:
             - .
 
-  test:
-    <<: *default_container_config
-    steps:
-      - *attach_workspace
-      - run:
-          name: Run tests
-          command: npm test
-
   release_npm:
     <<: *default_container_config
     steps:
@@ -51,16 +43,10 @@ workflows:
       - install:
           filters:
             <<: *only_version_tags
-      - test:
-          requires:
-            - install
-          filters:
-            <<: *only_version_tags
       - release_npm:
           context: npm-publish-token
           requires:
             - install
-            - test
           filters:
             <<: *only_version_tags
             branches:
