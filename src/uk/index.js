@@ -60,6 +60,15 @@ export const parties = {
     formattedName: "Brexit party",
     adjective: "Brexit party"
   },
+  REFORM: {
+    color: "#80cfd6",
+    socialColor: "#00bfbc",
+    textColor: "black",
+    whiteOverlayOpacity: 0.3,
+    shortName: "Reform",
+    formattedName: "Reform party",
+    adjective: "Reform party"
+  },
   UKIP: {
     color: "#7200ab",
     socialColor: "#7F00D9",
@@ -194,6 +203,9 @@ export const getPartyInfo = name => {
     case "BREXIT":
     case "BREXITPARTY":
       return parties.BREXIT;
+    case "REFORM":
+    case "REFORMPARTY":
+      return parties.REFORM;
     case "UKIP":
       return parties.UKIP;
     case "PLAIDCYMRU":
