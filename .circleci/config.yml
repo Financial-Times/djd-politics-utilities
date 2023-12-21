@@ -2,47 +2,24 @@ version: 2
 references:
   default_container_config: &default_container_config
     docker:
-      - image: node:lts
+      - image: cimg/node:14.18
 
   attach_workspace: &attach_workspace
     attach_workspace:
       at: ~/project
 
-  npm_cache_key: &npm_cache_key v1-dependency-npm-{{ checksum "package-lock.json" }}
-
-  # ssh_cache_key: &ssh_cache_key vvc-rev{{ .Revision }}
-
-  # restore_ssh: &restore_ssh
-  #   restore_cache:
-  #     keys:
-  #       - *ssh_cache_key
-
-  restore_node_modules: &restore_node_modules
-    restore_cache:
-      keys:
-        - *npm_cache_key
-        - v1-dependency-npm-
-
-  cache_node_modules: &cache_node_modules
-    save_cache:
-      key: *npm_cache_key
-      paths:
-        - $HOME/.npm
+  only_version_tags: &only_version_tags
+    tags:
+      only: /^v.*$/
 
 jobs:
   install:
     <<: *default_container_config
     steps:
       - checkout
-      # - save_cache:
-      #     key: *ssh_cache_key
-      #     paths:
-      #       - ~/.ssh
-      - *restore_node_modules
       - run:
           name: Install dependencies
           command: npm ci
-      - *cache_node_modules
       - persist_to_workspace:
           root: .
           paths:
@@ -60,36 +37,31 @@ jobs:
     <<: *default_container_config
     steps:
       - *attach_workspace
-      # - *restore_ssh
-      # - run:
-      #     name: Remove read key
-      #     command: ssh-add -D
-      # - add_ssh_keys:
-      #     fingerprints:
-      #       - "55:3a:fa:df:9d:17:8a:88:be:96:da:e1:1b:78:12:7a"
-      # - run:
-      #     name: Set Git config
-      #     command: git config --global user.email "data.journalism.development+ci@ft.com" && git config --global user.name FT-DJD
       - run:
-          name: Build
-          command: npm run build
+          name: Setup npm credentials
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ${HOME}/.npmrc
       - run:
           name: Publish npm package
-          command: npx semantic-release
+          command: ./node_modules/.bin/npm-prepublish --verbose && npm publish --access public
 
 workflows:
   version: 2
   build-and-release:
     jobs:
-      - install
-      # - test:
-      #     requires:
-      #       - install
-      - release_npm:
-          context: npm-publish-token
+      - install:
           filters:
-            branches:
-              only: main
+            <<: *only_version_tags
+      - test:
           requires:
             - install
-            # - test
+          filters:
+            <<: *only_version_tags
+      - release_npm:
+          context: npm-publish-token
+          requires:
+            - install
+            - test
+          filters:
+            <<: *only_version_tags
+            branches:
+              ignore: /.*/
