@@ -1,6 +1,5 @@
 {
   "name": "@financial-times/politics",
-  "version": "2.0.0",
   "description": "Various utilities for sundry political stuff",
   "main": "src/index.js",
   "type": "module",
