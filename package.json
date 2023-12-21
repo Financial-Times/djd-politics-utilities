@@ -2,10 +2,10 @@
   "name": "@financial-times/politics",
   "version": "2.0.0",
   "description": "Various utilities for sundry political stuff",
-  "main": "index.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "build": "pika build"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,24 +21,7 @@
     "url": "https://github.com/Financial-Times/djd-politics-utilities/issues"
   },
   "homepage": "https://github.com/Financial-Times/djd-politics-utilities#readme",
-  "@pika/pack": {
-    "pipeline": [
-      [
-        "@pika/plugin-standard-pkg"
-      ],
-      [
-        "@pika/plugin-build-node"
-      ],
-      [
-        "@pika/plugin-build-web"
-      ]
-    ]
-  },
   "devDependencies": {
-    "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.7.1",
-    "@pika/plugin-build-web": "^0.7.1",
-    "@pika/plugin-standard-pkg": "^0.7.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -51,22 +34,6 @@
   },
   "dependencies": {
     "remove-accents": "^0.4.2"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/npm",
-        {
-          "pkgRoot": "./pkg"
-        }
-      ],
-      "@semantic-release/github"
-    ]
   },
   "publishConfig": {
     "access": "public"
