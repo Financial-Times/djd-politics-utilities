@@ -76,12 +76,6 @@ jobs:
       - run:
           name: Publish npm package
           command: npx semantic-release
-      - run:
-          name: Set npm config
-          command: printf "@financial-times:registry=https://npm.pkg.github.com/\n//npm.pkg.github.com/:_authToken=${GHPR_TOKEN}" > ~/.npmrc
-      - run:
-          name: Publish GHPR
-          command: npm publish pkg
 
 workflows:
   version: 2
