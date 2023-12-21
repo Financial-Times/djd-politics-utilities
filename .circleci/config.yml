@@ -92,6 +92,7 @@ workflows:
       #     requires:
       #       - install
       - release_npm:
+          context: npm-publish-token
           filters:
             branches:
               only: main
