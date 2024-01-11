@@ -3,4 +3,4 @@
  * Library entrypoint
  */
 
-export * as uk from "./uk";
+export * as uk from "./uk/index.js";
